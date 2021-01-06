@@ -1,10 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
+/*import logo from '../logo.svg';*/
+import '../components/App.css';
+/*import Rps from './rps'*/
+import Main from './MemorieGame 2/main'
+/*import Game from './MemorieGame2/main'*/
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+     <Main></Main>
+    </div>
+  );
+}
+
+export default App;
+/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,9 +25,4 @@ function App() {
         >
           Learn React
         </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+      </header> */
