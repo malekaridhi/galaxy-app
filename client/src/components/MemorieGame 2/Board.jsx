@@ -19,11 +19,16 @@ const Board = props => {
     //the state checkers dose not change immidiatly it needs to be saved in a new variable 
     //newChekers
     /*setchekersCount(chekersCount-5)*/
-    setcompletedCount(completedCount-5)
+    /*setcompletedCount(completedCount-5)*/
     const newCheckers = [...checkers, card]
+    
     setCheckers(newCheckers)
     //validateCheckers confirm that we have the same card 
     const cardsInCheckersMatched = validateCheckers(newCheckers)
+    if (nonvalidateCheckers(newCheckers) ){
+      setcompletedCount(completedCount-5)
+    }
+    
     if (cardsInCheckersMatched) {
       setcompletedCount(completedCount+10)
       setCompleted([...completed, newCheckers[0].type])
@@ -31,12 +36,16 @@ const Board = props => {
       
     }
 
-    if (checkersFull(newCheckers)) {
+    if (checkersFull(newCheckers)  ) {
       resetCheckersAfter(1000)
     }
     function validateCheckers(checkers){
       return checkers.length === 2 &&
       checkers[0].type === checkers[1].type
+    }
+    function nonvalidateCheckers(checkers){
+      return checkers.length === 2 &&
+      checkers[0].type != checkers[1].type
     }
     function cardAlreadyInCheckers(checkers, card){
       return checkers.length === 1 && checkers[0].id === card.id
